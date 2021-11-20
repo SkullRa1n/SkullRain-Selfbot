@@ -1,6 +1,6 @@
 const Skull = require("discord.js-selfbot")
 const Rain = new Skull.Client()
-const { prefix, token, AccountID } = require("./infos.json");
+const { prefix, token, AccountID, text } = require("./infos.json");
 const fs = require('fs');
 
 Rain.on("ready", () => {
@@ -39,7 +39,7 @@ Rain.on('message', async msg => {
     if (cmdFile) {
         console.log(cmdFile)
         msg.delete().catch(O_o => { });
-        if (cmdFile) cmdFile.execute(msg, args)
+        if (cmdFile) cmdFile.execute(msg, args, text)
         console.log('Comando executado')
     }
 })
